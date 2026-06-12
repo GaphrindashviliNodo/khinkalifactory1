@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khinkali Factory - Digital Menu</title>
+    <link rel="stylesheet" href="menufull.css">
+</head>
+<body>
+
+
+<div id="splash-screen">
+        <div class="splash-logo-area">
+            <h1 class="splash-title">Khinkali Factory</h1>
+            <p class="splash-subtitle">კაფე & ბარი</p>
+            <div class="splash-loader"></div>
+        </div>
+    </div>
+
+    <header>
+        <div class="logo-area" onclick="handleLogoClick()">
+            <h1 class="brand-title">Khinkali Factory</h1>
+            <p class="brand-subtitle" id="sub-title">კაფე & ბარი</p>
+        </div>
+        <div class="lang-switch">
+            <button onclick="switchLanguage('ka')" id="btn-ka" class="active">GE</button>
+            <button onclick="switchLanguage('en')" id="id-en">EN</button>
+        </div>
+    </header>
+
+    <div class="search-container">
+    <input type="text" id="search-input" placeholder="🔍 მოძებნე კერძი..." oninput="handleSearch()">
+</div>
+
+    <nav class="categories-nav" id="categories-container"></nav>
+
+    <main class="menu-container">
+        <div class="products-grid" id="menu-products"></div>
+        <div class="pagination-container" id="pagination-controls">
+    </div>
+    </main>
+
+    <div class="cart-bar" id="cart-bar" onclick="toggleCartModal(true)">
+        <span id="cart-text">შეკვეთა: 0 ცალი</span>
+        <span id="cart-total">0.00 ₾</span>
+    </div>
+
+    <div class="modal" id="cart-modal">
+        <div class="modal-content">
+            <h3 id="modal-title">თქვენი შეკვეთა</h3>
+            <div id="cart-items-list"></div>
+            <div class="modal-total">
+                <span id="modal-total-text">სულ:</span>
+                <span id="modal-total-price">0.00 ₾</span>
+            </div>
+            <button class="close-btn" onclick="toggleCartModal(false)" id="btn-close">დახურვა</button>
+        </div>
+    </div>
+
+    <div class="modal" id="admin-modal">
+        <div class="modal-content admin-content">
+            <h3>👨‍💼 მენეჯერის პანელი</h3>
+
+            <div class="admin-form">
+    <h4>📂 კატეგორიების მართვა</h4>
+    <div style="display: flex; gap: 5px; margin-bottom: 10px;">
+        <input type="text" id="new-cat-id" placeholder="ID (მაგ: sauces)" style="margin-bottom:0;">
+        <input type="text" id="new-cat-ka" placeholder="სახელი GE (მაგ: 🌶️ სოუსები)" style="margin-bottom:0;">
+        <input type="text" id="new-cat-en" placeholder="სახელი EN (მაგ: 🌶️ Sauces)" style="margin-bottom:0;">
+    </div>
+    <button class="add-product-btn" onclick="addNewCategory()" style="background: #2a4d38; color: #fff; margin-top:0;">+ კატეგორიის დამატება</button>
+    
+    <div id="admin-categories-list" style="margin-top: 10px; max-height: 120px; overflow-y: auto; background: rgba(0,0,0,0.3); padding: 5px; border-radius: 6px;"></div>
+</div>
+            
+            <div class="admin-form">
+                <h4>➕ ახალი კერძის დამატება</h4>
+                <select id="new-cat-select"></select>
+                     </select>
+                <input type="text" id="new-name-ka" placeholder="სახელი (ქართულად)" required>
+                <input type="text" id="new-name-en" placeholder="სახელი (ინგლისურად)" required>
+                <textarea id="new-desc-ka" placeholder="აღწერა (ქართულად)"></textarea>
+                <textarea id="new-desc-en" placeholder="აღწერა (ინგლისურად)"></textarea>
+                <input type="number" id="new-price" step="0.1" placeholder="ფასი (მაგ: 1.80)" required>
+                
+                <label class="file-upload-btn">
+                    📷 ატვირთეთ ფოტო
+                    <input type="file" id="new-img" accept="image/*">
+                </label>
+                <div id="img-preview-text" style="font-size:12px; color:var(--accent-color); margin-top:5px; text-align:center;"></div>
+
+                <button class="add-product-btn" onclick="addNewProduct()">დამატება მენიუში</button>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(223,177,91,0.2); margin: 20px 0;">
+
+            <h4>📋 არსებული მენიუს მართვა</h4>
+            <div id="admin-items-list"></div>
+            
+            <button class="close-btn" onclick="closeAdminPanel()">გამოსვლა</button>
+        </div>
+    </div>
+
+<footer class="clean-footer">
+    <div class="footer-wrapper">
+        <h3 class="footer-minimal-title">Խ - ფილიალები</h3>
+        
+        <div class="compact-branches" id="footer-branches-list"></div>
+
+        <div class="footer-split">
+            <div class="mini-map-box" id="footer-map-container"></div>
+            
+            <div class="footer-meta">
+                <div class="compact-socials">
+                    <a href="https://facebook.com/თქვენი_გვერდი" id="footer-link-fb" target="_blank" title="Facebook">
+                        <svg viewBox="0 0 24 24" class="social-svg"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.8c4.56-.93 8-4.96 8-9.8z"/></svg>
+                    </a>
+                    <a href="https://instagram.com/თქვენი_გვერდი" id="footer-link-ig" target="_blank" title="Instagram">
+                        <svg viewBox="0 0 24 24" class="social-svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+                    </a>
+                </div>
+                <p class="mini-copyright">© 2026 Khinkali Factory.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+    
+    <script src="menu.js"></script>
+</body>
+</html>

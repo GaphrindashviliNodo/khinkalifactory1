@@ -1,0 +1,965 @@
+
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ხინკლის ფაბრიკა — Tbilisi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Georgian:wght@300;400;600;700;900&family=Noto+Sans+Georgian:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+/* ===== HINKALI FACTORY — VELVET GREEN PALETTE ===== */
+:root {
+  --forest-deep:  #1a2e1a;
+  --forest-mid:   #243524;
+  --forest-warm:  #2e4a2e;
+  --forest-light: #3d6b3d;
+  --amber:        #c8891a;
+  --amber-lt:     #e0a93a;
+  --amber-glow:   #f0c060;
+  --cream:        #faf5ea;
+  --cream-dk:     #efe5cc;
+  --cream-warm:   #f5e8cc;
+  --terracotta:   #b84e28;
+  --sage:         #6b8f6b;
+  --text:         #1a1a0f;
+  --text-mid:     #4a5e3a;
+  --text-lt:      #7a9060;
+  --white:        #ffffff;
+  --shadow:       rgba(26,46,26,0.14);
+  --r:            14px;
+  --r-sm:         8px;
+  --transition:   0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Noto Sans Georgian', 'Segoe UI', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+  line-height: 1.65;
+}
+
+.container { max-width: 1180px; margin: 0 auto; padding: 0 24px; }
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.75rem; font-weight: 600;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 12px;
+}
+.section-title {
+  font-family: 'Noto Serif Georgian', Georgia, serif;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  font-weight: 700; line-height: 1.2;
+  color: var(--forest-deep); margin-bottom: 16px;
+}
+.section-title em { color: var(--amber); font-style: italic; }
+.section-title.light { color: var(--cream); }
+.section-title.light em { color: var(--amber-lt); }
+.section-sub { color: var(--text-mid); font-size: 1.05rem; max-width: 580px; }
+.section-header { text-align: center; margin-bottom: 56px; }
+.section-header .section-sub { margin: 0 auto; }
+
+/* Reveal */
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.12s; }
+.delay-2 { transition-delay: 0.24s; }
+.delay-3 { transition-delay: 0.36s; }
+.delay-4 { transition-delay: 0.48s; }
+
+/* Buttons */
+.btn-primary {
+  display: inline-block; background: var(--amber);
+  color: var(--white); font-weight: 600; font-size: 0.95rem;
+  padding: 14px 32px; border-radius: 100px;
+  text-decoration: none;
+  transition: background var(--transition), transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 20px rgba(200,137,26,0.35);
+}
+.btn-primary:hover { background: var(--amber-lt); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,137,26,0.45); }
+
+.btn-ghost {
+  display: inline-block; border: 2px solid rgba(255,255,255,0.5);
+  color: var(--white); font-weight: 600; font-size: 0.95rem;
+  padding: 12px 28px; border-radius: 100px;
+  text-decoration: none; transition: border-color 0.3s, background 0.3s;
+}
+.btn-ghost:hover { border-color: var(--white); background: rgba(255,255,255,0.12); }
+
+.light-btn { background: var(--cream); color: var(--forest-deep); box-shadow: 0 4px 24px rgba(0,0,0,0.2); }
+.light-btn:hover { background: var(--amber-lt); color: var(--white); }
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 0 24px;
+  transition: background 0.4s, box-shadow 0.4s, backdrop-filter 0.4s;
+}
+.nav.scrolled {
+  background: rgba(250,245,234,0.96);
+  box-shadow: 0 2px 24px var(--shadow);
+  backdrop-filter: blur(12px);
+}
+.nav-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 70px;
+}
+.nav-logo { display: flex; flex-direction: column; gap: 0; text-decoration: none; line-height: 1; }
+.logo-geo { font-family: 'Noto Serif Georgian', serif; font-size: 1.1rem; font-weight: 700; color: var(--forest-deep); letter-spacing: 0.02em; }
+.logo-eng { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.22em; color: var(--amber); text-transform: uppercase; }
+.nav.scrolled .logo-geo { color: var(--forest-deep); }
+.nav:not(.scrolled) .logo-geo { color: var(--white); }
+.nav:not(.scrolled) .logo-eng { color: var(--amber-lt); }
+.nav-links { display: flex; align-items: center; gap: 8px; list-style: none; }
+.nav-links a {
+  text-decoration: none; font-size: 0.9rem; font-weight: 500;
+  padding: 8px 14px; border-radius: 100px;
+  transition: background 0.25s, color 0.25s; color: var(--white);
+}
+.nav.scrolled .nav-links a { color: var(--text-mid); }
+.nav-links a:hover { background: rgba(200,137,26,0.12); color: var(--amber) !important; }
+
+.burger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+.burger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: 0.3s; }
+.nav.scrolled .burger span { background: var(--forest-deep); }
+
+.mobile-menu {
+  display: none; flex-direction: column; gap: 4px;
+  padding: 12px 24px 20px;
+  background: rgba(250,245,234,0.98); backdrop-filter: blur(12px);
+}
+.mobile-menu a { text-decoration: none; color: var(--text); font-weight: 500; padding: 10px 0; border-bottom: 1px solid var(--cream-dk); }
+.mobile-cta { margin-top: 8px; background: var(--amber); color: var(--white) !important; text-align: center; padding: 12px 24px !important; border-radius: 100px; border-bottom: none !important; }
+.mobile-menu.open { display: flex; }
+
+/* HERO — deep velvet green */
+.hero {
+  min-height: 100vh; position: relative;
+  display: flex; align-items: center;
+  background: linear-gradient(145deg, #0e1e0e 0%, #1a2e1a 30%, #243524 60%, #2e4a2e 100%);
+  overflow: hidden;
+}
+.hero-bg { position: absolute; inset: 0; pointer-events: none; }
+.steam-wrap { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 200px; height: 400px; opacity: 0.5; }
+.steam-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; animation: steamDraw 4s ease forwards; }
+.s1 { animation-delay: 0.5s; } .s2 { animation-delay: 1s; } .s3 { animation-delay: 1.5s; }
+@keyframes steamDraw { to { stroke-dashoffset: 0; } }
+.hero-dumpling-bg { position: absolute; inset: 0; }
+.dumpling-float { position: absolute; font-size: 4rem; opacity: 0.05; animation: floatDumpling 8s ease-in-out infinite; }
+.d1 { top: 15%; right: 10%; animation-delay: 0s; }
+.d2 { bottom: 20%; right: 25%; animation-delay: 2.5s; }
+.d3 { top: 55%; right: 5%; animation-delay: 5s; }
+@keyframes floatDumpling { 0%, 100% { transform: translateY(0) rotate(-5deg); } 50% { transform: translateY(-20px) rotate(5deg); } }
+/* warm amber glow overlay */
+.hero::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 70%, rgba(200,137,26,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; padding: 120px 24px 80px; max-width: 800px; margin: 0 auto; text-align: center; }
+.hero-eyebrow { display: inline-block; color: rgba(255,255,255,0.55); font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 20px; }
+.hero-title { font-family: 'Noto Serif Georgian', Georgia, serif; font-size: clamp(3rem, 10vw, 7.5rem); font-weight: 900; line-height: 1; margin-bottom: 24px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.title-line { color: var(--white); }
+.title-accent { color: var(--amber-lt); -webkit-text-stroke: 1px var(--amber); }
+.hero-sub { color: rgba(255,255,255,0.7); font-size: clamp(0.95rem, 2vw, 1.15rem); line-height: 1.7; margin-bottom: 36px; }
+.hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; margin-bottom: 56px; }
+.hero-stats {
+  display: flex; align-items: center; gap: 0; justify-content: center;
+  background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 100px; padding: 16px 32px; width: fit-content; margin: 0 auto;
+  backdrop-filter: blur(8px);
+}
+.stat { text-align: center; padding: 0 24px; }
+.stat-num { display: block; font-size: 1.6rem; font-weight: 700; color: var(--amber-lt); }
+.stat-label { display: block; font-size: 0.72rem; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.stat-divider { width: 1px; height: 36px; background: rgba(255,255,255,0.12); }
+.hero-scroll { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.35); font-size: 0.75rem; letter-spacing: 0.15em; }
+.scroll-arrow { width: 20px; height: 20px; border-right: 2px solid rgba(255,255,255,0.25); border-bottom: 2px solid rgba(255,255,255,0.25); transform: rotate(45deg); animation: scrollBounce 1.5s ease-in-out infinite; }
+@keyframes scrollBounce { 0%, 100% { transform: rotate(45deg) translateY(0); } 50% { transform: rotate(45deg) translateY(5px); } }
+
+/* ABOUT — with real photo, no features list */
+.about { padding: 100px 0; background: var(--cream); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-text p { color: var(--text-mid); font-size: 1.05rem; margin-bottom: 18px; line-height: 1.8; }
+.about-visual { display: flex; justify-content: center; align-items: center; }
+
+/* Photo styling */
+.about-photo-wrap {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+}
+.about-photo-wrap img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  box-shadow: 0 20px 60px rgba(26,46,26,0.25);
+}
+/* warm amber glow under photo */
+.about-photo-wrap::after {
+  content: '';
+  position: absolute;
+  bottom: -18px; left: 10%; right: 10%;
+  height: 60px;
+  background: radial-gradient(ellipse, rgba(200,137,26,0.28) 0%, transparent 70%);
+  filter: blur(12px);
+  z-index: -1;
+}
+/* decorative corner accent */
+.about-photo-wrap::before {
+  content: '';
+  position: absolute;
+  top: -8px; right: -8px;
+  width: 80px; height: 80px;
+  border-top: 3px solid var(--amber);
+  border-right: 3px solid var(--amber);
+  border-radius: 0 12px 0 0;
+  pointer-events: none;
+}
+.photo-caption {
+  margin-top: 14px;
+  font-size: 0.82rem;
+  color: var(--text-lt);
+  letter-spacing: 0.08em;
+  font-style: italic;
+  text-align: center;
+}
+
+/* DISHES */
+.dishes { padding: 100px 0; background: var(--cream-dk); }
+.dishes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.dish-card { background: var(--white); border-radius: var(--r); overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease; box-shadow: 0 2px 16px var(--shadow); }
+.dish-card:hover { transform: translateY(-6px); box-shadow: 0 12px 40px rgba(26,46,26,0.15); }
+.dish-img { height: 140px; background: linear-gradient(135deg, var(--cream-dk), var(--cream-warm)); display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; overflow: hidden; }
+.dish-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to bottom, transparent 60%, rgba(26,46,26,0.05)); }
+.dish-info { padding: 20px 22px 24px; }
+.dish-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--amber); background: rgba(200,137,26,0.1); padding: 3px 10px; border-radius: 100px; margin-bottom: 8px; }
+.dish-info h3 { font-family: 'Noto Serif Georgian', serif; font-size: 1.1rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 8px; }
+.dish-info p { font-size: 0.88rem; color: var(--text-lt); line-height: 1.6; }
+.dish-price { margin-top: 14px; font-weight: 700; color: var(--terracotta); font-size: 1rem; }
+.dishes-cta { text-align: center; margin-top: 48px; }
+
+/* BUILDER PROMO */
+.builder-promo { padding: 100px 0; background: linear-gradient(135deg, #0e1e0e 0%, #1a2e1a 50%, #152415 100%); overflow: hidden; }
+.builder-inner { display: grid; grid-template-columns: 1.1fr 1fr; gap: 80px; align-items: center; }
+.builder-text .section-eyebrow.light { color: rgba(255,255,255,0.45); }
+.builder-text p { color: rgba(255,255,255,0.65); margin-bottom: 28px; font-size: 1.05rem; line-height: 1.8; }
+.builder-options { margin-bottom: 36px; display: flex; flex-direction: column; gap: 12px; }
+.opt { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-radius: var(--r-sm); background: rgba(255,255,255,0.05); border-left: 3px solid var(--amber); }
+.opt strong { color: var(--amber-lt); font-size: 0.85rem; min-width: 60px; }
+.opt span { color: rgba(255,255,255,0.6); font-size: 0.85rem; }
+.builder-visual { display: flex; justify-content: center; }
+.rotating-circle { position: relative; width: 280px; height: 280px; }
+.circle-center { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 3.5rem; z-index: 2; animation: gentleFloat 4s ease-in-out infinite; }
+@keyframes gentleFloat { 0%, 100% { transform: translate(-50%, -50%) translateY(0); } 50% { transform: translate(-50%, -50%) translateY(-10px); } }
+.circle-item { position: absolute; font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.75); background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.13); padding: 6px 12px; border-radius: 100px; white-space: nowrap; animation: orbitSpin 12s linear infinite; }
+.ci1 { animation-delay: 0s; } .ci2 { animation-delay: -2.4s; } .ci3 { animation-delay: -4.8s; } .ci4 { animation-delay: -7.2s; } .ci5 { animation-delay: -9.6s; }
+@keyframes orbitSpin { 0% { transform: rotate(0deg) translateX(110px) rotate(0deg); } 100% { transform: rotate(360deg) translateX(110px) rotate(-360deg); } }
+
+/* LOCATIONS */
+.locations { padding: 100px 0; background: var(--cream); }
+.locations-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 28px; }
+
+.location-card {
+  background: var(--white);
+  border-radius: var(--r);
+  box-shadow: 0 2px 20px var(--shadow);
+  overflow: hidden;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  position: relative;
+  display: flex; flex-direction: column;
+}
+.location-card:hover { transform: translateY(-6px); box-shadow: 0 14px 48px rgba(26,46,26,0.15); }
+
+.loc-stripe {
+  height: 6px;
+  background: linear-gradient(90deg, var(--amber) 0%, var(--amber-lt) 100%);
+}
+.loc-body { padding: 28px 28px 20px; flex: 1; display: flex; gap: 18px; align-items: flex-start; }
+.loc-number {
+  font-size: 2.8rem; font-weight: 900;
+  color: var(--cream-dk); letter-spacing: -2px;
+  font-family: 'Noto Serif Georgian', serif;
+  line-height: 1; flex-shrink: 0; user-select: none;
+  transition: color 0.3s;
+}
+.location-card:hover .loc-number { color: rgba(200,137,26,0.25); }
+.loc-info { flex: 1; }
+.loc-info h3 { font-family: 'Noto Serif Georgian', serif; font-size: 1.25rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 4px; }
+.loc-neighbourhood { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--amber); margin-bottom: 10px; }
+.loc-address { font-size: 0.9rem; color: var(--text-mid); margin-bottom: 6px; display: flex; align-items: baseline; gap: 6px; }
+.loc-hours { font-size: 0.88rem; color: var(--sage); font-weight: 500; margin-bottom: 14px; display: flex; align-items: center; gap: 6px; }
+.loc-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.loc-tags span { font-size: 0.75rem; padding: 3px 10px; border-radius: 100px; background: var(--cream-dk); color: var(--text-mid); }
+.loc-footer {
+  padding: 16px 28px 20px;
+  border-top: 1px solid var(--cream-dk);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  flex-wrap: wrap;
+}
+.loc-phone {
+  display: inline-flex; align-items: center; gap: 7px;
+  text-decoration: none; font-weight: 700; font-size: 0.95rem;
+  color: var(--forest-deep); transition: color 0.2s;
+}
+.loc-phone:hover { color: var(--amber); }
+.loc-phone svg { flex-shrink: 0; }
+.loc-actions { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+.loc-map-btn {
+  font-size: 0.82rem; font-weight: 600; color: var(--amber);
+  text-decoration: none; padding: 7px 16px;
+  border: 1.5px solid var(--amber); border-radius: 100px;
+  transition: background 0.2s, color 0.2s; white-space: nowrap;
+}
+.loc-map-btn:hover { background: var(--amber); color: var(--white); }
+@keyframes phonePulse { 0%,100% { transform: rotate(0deg); } 20% { transform: rotate(-12deg); } 40% { transform: rotate(12deg); } 60% { transform: rotate(-6deg); } }
+.location-card:hover .loc-phone svg { animation: phonePulse 0.6s ease; }
+
+/* DELIVERY STRIP */
+.delivery-strip { padding: 64px 0; background: var(--forest-deep); }
+.delivery-strip-inner {
+  display: flex; align-items: center; justify-content: center;
+  gap: 40px; flex-wrap: wrap;
+}
+.delivery-strip h3 {
+  font-family: 'Noto Serif Georgian', serif;
+  color: var(--cream); font-size: 1.3rem; font-weight: 700; white-space: nowrap;
+}
+.delivery-strip-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.12); }
+.delivery-btns { display: flex; gap: 14px; flex-wrap: wrap; align-items: center; }
+.btn-wolt { display: inline-flex; align-items: center; gap: 10px; background: #009de0; color: var(--white); padding: 13px 24px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: background 0.3s, transform 0.2s; }
+.btn-wolt:hover { background: #0080be; transform: translateY(-2px); }
+.btn-glovo { display: inline-flex; align-items: center; gap: 10px; background: #ffc244; color: #1a1a1a; padding: 13px 24px; border-radius: 100px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: background 0.3s, transform 0.2s; }
+.btn-glovo:hover { background: #ffb020; transform: translateY(-2px); }
+.btn-rezto { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.08); color: var(--white); border: 1.5px solid rgba(255,255,255,0.25); padding: 12px 22px; border-radius: 100px; text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: background 0.3s, transform 0.2s, border-color 0.3s; }
+.btn-rezto:hover { background: rgba(255,255,255,0.16); border-color: rgba(255,255,255,0.5); transform: translateY(-2px); }
+
+/* SOCIAL / CONTACT */
+.social-delivery { padding: 90px 0; background: var(--cream-dk); }
+.sd-grid {
+  display: grid; grid-template-columns: 1fr auto 1fr; gap: 0;
+  align-items: center; background: var(--white);
+  border-radius: 20px; overflow: hidden;
+  box-shadow: 0 4px 32px var(--shadow);
+}
+.sd-block { padding: 48px 40px; }
+.sd-block h3 { font-family: 'Noto Serif Georgian', serif; font-size: 1.5rem; font-weight: 700; color: var(--forest-deep); margin-bottom: 10px; line-height: 1.3; }
+.sd-block p { color: var(--text-lt); margin-bottom: 24px; font-size: 0.95rem; }
+.sd-divider { width: 1px; height: 180px; background: var(--cream-dk); }
+.social-links { display: flex; flex-direction: column; gap: 10px; }
+.social-btn { display: inline-flex; align-items: center; gap: 10px; padding: 11px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.9rem; transition: opacity 0.2s, transform 0.2s; }
+.social-btn:hover { opacity: 0.88; transform: translateX(3px); }
+.instagram { background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888); color: var(--white); }
+.facebook { background: #1877f2; color: var(--white); }
+.contact-items { display: flex; flex-direction: column; gap: 10px; }
+.contact-item { display: block; text-decoration: none; font-size: 0.9rem; color: var(--text-mid); transition: color 0.2s; }
+a.contact-item:hover { color: var(--amber); }
+
+/* FOOTER */
+.footer { background: var(--forest-deep); padding: 64px 0 32px; }
+.footer-inner { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 48px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.footer-brand p { color: rgba(255,255,255,0.4); font-size: 0.88rem; line-height: 1.7; }
+.footer-brand .nav-logo { margin-bottom: 14px; }
+.footer-brand .logo-geo { color: var(--cream) !important; }
+.footer-links h4 { color: var(--amber-lt); font-size: 0.75rem; letter-spacing: 0.16em; text-transform: uppercase; margin-bottom: 16px; display: block; }
+.footer-links { display: flex; flex-direction: column; gap: 0; }
+.footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.9rem; padding: 5px 0; transition: color 0.2s; }
+.footer-links a:hover { color: var(--amber-lt); }
+.footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 28px; flex-wrap: wrap; gap: 8px; }
+.footer-bottom p { color: rgba(255,255,255,0.25); font-size: 0.82rem; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .about-grid { grid-template-columns: 1fr; gap: 48px; }
+  .about-visual { order: -1; }
+  .about-photo-wrap { max-width: 100%; }
+  .about-photo-wrap img { height: 300px; }
+  .dishes-grid { grid-template-columns: repeat(2, 1fr); }
+  .builder-inner { grid-template-columns: 1fr; gap: 48px; }
+  .builder-visual { display: none; }
+  .locations-grid { grid-template-columns: 1fr; }
+  .sd-grid { grid-template-columns: 1fr; }
+  .sd-divider { width: 100%; height: 1px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .delivery-strip-inner { flex-direction: column; gap: 24px; text-align: center; }
+  .delivery-strip-divider { display: none; }
+}
+@media (max-width: 680px) {
+  .nav-links { display: none; }
+  .burger { display: flex; }
+  .dishes-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; border-radius: 16px; gap: 8px; padding: 20px 24px; }
+  .stat-divider { width: 80%; height: 1px; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .footer-bottom { flex-direction: column; text-align: center; }
+  .sd-block { padding: 32px 24px; }
+  .loc-footer { flex-direction: column; align-items: flex-start; gap: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+}
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <span class="logo-geo">ხინკლის</span>
+        <span class="logo-eng">FACTORY</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#about">ჩვენ შესახებ</a></li>
+        <li><a href="menu.html">მენიუ</a></li>
+        <li><a href="#locations">ფილიალები</a></li>
+        <li><a href="#contact">კონტაქტი</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="მენიუ">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#about">ჩვენ შესახებ</a>
+      <a href="menu-index.html">მენიუ</a>
+      <a href="#locations">ფილიალები</a>
+      <a href="#contact">კონტაქტი</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="steam-wrap" aria-hidden="true">
+        <svg class="steam" viewBox="0 0 200 400" xmlns="http://www.w3.org/2000/svg">
+          <path class="steam-path s1" d="M40,380 Q20,300 50,240 Q80,180 40,120 Q20,80 50,20" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="3" stroke-linecap="round"/>
+          <path class="steam-path s2" d="M100,400 Q80,310 110,250 Q140,190 100,130 Q70,90 100,30" fill="none" stroke="rgba(255,255,255,0.09)" stroke-width="2" stroke-linecap="round"/>
+          <path class="steam-path s3" d="M160,390 Q140,310 170,245 Q200,185 160,125 Q130,85 165,15" fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="2.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="hero-dumpling-bg" aria-hidden="true">
+        <div class="dumpling-float d1">🥟</div>
+        <div class="dumpling-float d2">🥟</div>
+        <div class="dumpling-float d3">🥟</div>
+      </div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow reveal">ტრადიციული გემო • თბილისი</div>
+      <h1 class="hero-title reveal delay-1">
+        <span class="title-line">ხინკლის</span>
+        <span class="title-accent">ფაბრიკა</span>
+      </h1>
+      <p class="hero-sub reveal delay-2">
+        შექმენი შენი სრულყოფილი ხინკალი — აირჩიე ცომი, შიგთავსი და მომზადების სტილი.
+        <br>ნამდვილი ქართული სამზარეულო, ფუჟენის შეხებით.
+      </p>
+      <div class="hero-actions reveal delay-3">
+        <a href="menu.html" class="btn-primary">მენიუს ნახვა</a>
+        <a href="#locations" class="btn-ghost">ფილიალები</a>
+      </div>
+      <div class="hero-stats reveal delay-4">
+        <div class="stat"><span class="stat-num">4.4</span><span class="stat-label">★ Google Rating</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">4</span><span class="stat-label">ფილიალი</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">15+</span><span class="stat-label">სახეობა ხინკლი</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>გადაახვიე</span>
+      <div class="scroll-arrow"></div>
+    </div>
+  </section>
+
+  <!-- ABOUT — real photo, no feature rows, no order button -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="section-eyebrow">ჩვენ შესახებ</span>
+          <h2 class="section-title">სადაც ხინკალი<br><em>ხელოვნება ხდება</em></h2>
+          <p>ხინკლის ფაბრიკა — ეს არ არის უბრალო რესტორანი. ეს არის ადგილი, სადაც ქართული კულინარიის საუკეთესო ტრადიციები შეერწყება თანამედროვე სამზარეულოს. ჩვენი კონცეფცია უნიკალურია: <strong>შეადგინე შენი ხინკალი</strong> — ისე, როგორც გინდა.</p>
+          <p>გთავაზობთ სრულ ქართულ მენიუს — ხინკალიდან ხაჭაპურამდე, ქართული ღვინიდან სახლის ლიმონათამდე. ჩვენი შეფ-მზარეულები ყოველ კერძს სიყვარულით ამზადებენ.</p>
+          <p>ხბოს, ღორის, სოკოსა და ყველის შიგთავსებიდან — ყოველი ხინკალი დამზადებულია და შექმნილია ხელითა და ოჯახური სიყვარულით.</p>
+        </div
+        <div class="about-visual reveal delay-1">
+          <div class="about-photo-wrap">
+            <img src="khinkali_photo.png" alt="ახალი ხინკალი — ხინკლის ფაბრიკა" />
+            <div class="photo-caption">ხელნაკეთი ხინკალი, ყოველდღე</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  
+      <div class="dishes-cta reveal">
+        <a href="menu.html" class="btn-primary">სრული მენიუ →</a>
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+
+<section class="builder-promo">
+  <div class="container">
+    <div class="builder-inner reveal">
+      
+      <div class="builder-text">
+        <span class="section-eyebrow light">ჩვენი უნიკალური კონცეფცია</span>
+        <h2 class="section-title light">შექმენი <em>შენი</em> ხინკალი</h2>
+        <p>ხინკლის ფაბრიკაში შეგიძლიათ თვითონ შეადგინოთ ხინკალი: ტრადიციული სახეობებიდან (ქალაქური, მთიულური, ფასანაურული, თუშური) განსაკუთრებულ ვარიანტებამდე — ყველი და ტრუფელი. ასობით კომბინაცია, ერთი სრულყოფილი შედეგი.</p>
+        
+        <div class="builder-options">
+          <div class="opt"><strong>ცომი</strong><span>კლასიკური · მთის · წვრილი</span></div>
+          <div class="opt"><strong>შიგთავსი</strong><span>ხბო · ღორი · ბარამბო · სოკო · კარტოფილი · ყველი · ტრუფელი</span></div>
+          <div class="opt"><strong>სტილი</strong><span>მოხარშული · მოშუშული · ორთქლზე</span></div>
+        </div>
+      </div>
+      
+      <div class="builder-visual" aria-hidden="true">
+        <div class="rotating-container">
+          <div class="rotating-circle">
+            <div class="circle-item ci1"><span>ხბოს ხორცი</span></div>
+            <div class="circle-item ci2"><span>სოკო</span></div>
+            <div class="circle-item ci3"><span>ყველი & ტრუფელი</span></div>
+            <div class="circle-item ci4"><span>კარტოფილი</span></div>
+            <div class="circle-item ci5"><span>ბარამბო</span></div>
+          </div>
+          <div class="circle-center">
+            <img src="https://zgnyqgsxmsnrkpseulsk.supabase.co/storage/v1/object/public/recipe-images/khinkali.jpg" alt="ხინკალი" class="center-img">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+/* სექციის კონტეინერები */
+.builder-promo {
+  padding: 80px 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.builder-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* ტექსტის ბლოკის სტილები */
+.builder-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section-eyebrow {
+  display: block;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+}
+
+.section-title {
+  font-size: 42px;
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.builder-text p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* ოფციების ბლოკები */
+.builder-options {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.opt {
+  padding: 15px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.opt:hover {
+  transform: translateX(5px);
+}
+
+.opt strong {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.opt span {
+  font-size: 15px;
+  opacity: 0.8;
+}
+
+/* ვიზუალური ანიმაციის სტრუქტურა */
+.builder-visual {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 400px;
+  height: 450px;
+}
+
+.rotating-container {
+  position: relative;
+  width: 350px;
+  height: 350px;
+}
+
+/* მბრუნავი წრიული ხაზი */
+.rotating-circle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  animation: rotateClockwise 30s linear infinite;
+}
+
+/* ელემენტების პოზიციონირება წრეზე */
+.circle-item {
+  position: absolute;
+  width: 120px;
+  height: 40px;
+  margin-left: -60px;
+  margin-top: -20px;
+  top: 50%;
+  left: 50%;
+}
+
+.circle-item span {
+  display: block;
+  background: rgba(20, 20, 20, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  text-align: center;
+  white-space: nowrap;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  animation: rotateCounterClockwise 30s linear infinite;
+}
+
+/* ინგრედიენტების განაწილება (360 / 5 = 72 გრადუსი, რადიუსი 175px) */
+.ci1 { transform: rotate(0deg) translate(175px); }
+.ci2 { transform: rotate(72deg) translate(175px); }
+.ci3 { transform: rotate(144deg) translate(175px); }
+.ci4 { transform: rotate(216deg) translate(175px); }
+.ci5 { transform: rotate(288deg) translate(175px); }
+
+/* ცენტრალური ფოტოს ბლოკი */
+.circle-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.center-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.circle-center:hover .center-img {
+  transform: scale(1.08);
+}
+
+/* ანიმაციების Keyframes */
+@keyframes rotateClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotateCounterClockwise {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+/* მობილურის ადაპტაცია (Responsive) */
+@media (max-width: 768px) {
+  .builder-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+  .opt {
+    text-align: left;
+  }
+  .builder-visual {
+    min-width: 100%;
+    height: auto;
+    margin-top: 40px;
+  }
+  .rotating-container {
+    width: 280px;
+    height: 280px;
+  }
+  .circle-center {
+    width: 130px;
+    height: 130px;
+  }
+  .ci1 { transform: rotate(0deg) translate(140px); }
+  .ci2 { transform: rotate(72deg) translate(140px); }
+  .ci3 { transform: rotate(144deg) translate(140px); }
+  .ci4 { transform: rotate(216deg) translate(140px); }
+  .ci5 { transform: rotate(288deg) translate(140px); }
+}
+</style>
+
+
+
+  <!-- LOCATIONS -->
+  <section class="locations" id="locations">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-eyebrow">ფილიალები</span>
+        <h2 class="section-title">გვიპოვეთ თბილისში</h2>
+        <p class="section-sub">4 ფილიალი — ყოველდღე 10:00–23:00</p>
+      </div>
+      <div class="locations-grid">
+        <div class="location-card reveal">
+          <div class="loc-stripe"></div>
+          <div class="loc-body">
+            <div class="loc-number">01</div>
+            <div class="loc-info">
+              <div class="loc-neighbourhood">ვაკე</div>
+              <h3>ვაკის ფილიალი</h3>
+              <p class="loc-address">📍 ილო მოსაშვილის ქ. 11 <span style="color:var(--text-lt);font-size:0.82rem">(ვაკის პარკთან)</span></p>
+              <div class="loc-hours">⏰ 10:00 – 23:00</div>
+              <div class="loc-tags"><span>🅿️ პარკინგი</span><span>🏡 ტერასა</span><span>🛵 Wolt</span><span>🛵 Glovo</span></div>
+            </div>
+          </div>
+          <div class="loc-footer">
+            <a href="tel:+995577330340" class="loc-phone">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              577 33 03 40
+            </a>
+            <div class="loc-actions">
+              <a href="https://www.instagram.com/hinkalifactory/" target="_blank" class="loc-map-btn" style="border-color:#e1306c;color:#e1306c">Instagram</a>
+              <a href="https://maps.google.com/maps?ftid=0x40440de72c679087:0xbc7af1c69515b7cf" target="_blank" class="loc-map-btn">რუკა →</a>
+            </div>
+          </div>
+        </div>
+        <div class="location-card reveal delay-1">
+          <div class="loc-stripe" style="background:linear-gradient(90deg,#b84e28,#e07040)"></div>
+          <div class="loc-body">
+            <div class="loc-number">02</div>
+            <div class="loc-info">
+              <div class="loc-neighbourhood">საბურთალო</div>
+              <h3>კოსტავას ფილიალი</h3>
+              <p class="loc-address">📍 მ. კოსტავას ქ. 77 <span style="color:var(--text-lt);font-size:0.82rem">(სააკაძის მოედანთან)</span></p>
+              <div class="loc-hours">⏰ 10:00 – 23:00</div>
+              <div class="loc-tags"><span>🅿️ ქუჩის პარკინგი</span><span>🛵 Wolt</span><span>🛵 Glovo</span></div>
+            </div>
+          </div>
+          <div class="loc-footer">
+            <a href="tel:+995577330306" class="loc-phone">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              577 33 03 06
+            </a>
+            <div class="loc-actions">
+              <a href="https://www.instagram.com/hinkalifactory/" target="_blank" class="loc-map-btn" style="border-color:#e1306c;color:#e1306c">Instagram</a>
+              <a href="https://maps.google.com/maps?ftid=0x4044737633d660dd:0x1b614ac748b71025" target="_blank" class="loc-map-btn">რუკა →</a>
+            </div>
+          </div>
+        </div>
+        <div class="location-card reveal delay-2">
+          <div class="loc-stripe" style="background:linear-gradient(90deg,#3d6b3d,#6b8f6b)"></div>
+          <div class="loc-body">
+            <div class="loc-number">03</div>
+            <div class="loc-info">
+              <div class="loc-neighbourhood">ორბელიანი</div>
+              <h3>ფხოვის ფილიალი</h3>
+              <p class="loc-address">📍 ფხოვის ქ. 2</p>
+              <div class="loc-hours">⏰ 10:00 – 23:00</div>
+              <div class="loc-tags"><span>🏙️ ცენტრი</span><span>🛵 Wolt</span><span>🛵 Glovo</span></div>
+            </div>
+          </div>
+          <div class="loc-footer">
+            <a href="tel:+995577330307" class="loc-phone">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              577 33 03 07
+            </a>
+            <div class="loc-actions">
+              <a href="https://www.instagram.com/hinkalifactory/" target="_blank" class="loc-map-btn" style="border-color:#e1306c;color:#e1306c">Instagram</a>
+              <a href="https://maps.google.com/maps?ftid=0x404473ee6ba9620b:0xdb0fd3338a4e5e45" target="_blank" class="loc-map-btn">რუკა →</a>
+            </div>
+          </div>
+        </div>
+        <div class="location-card reveal delay-3">
+          <div class="loc-stripe" style="background:linear-gradient(90deg,#2e4a2e,#c8891a)"></div>
+          <div class="loc-body">
+            <div class="loc-number">04</div>
+            <div class="loc-info">
+              <div class="loc-neighbourhood">თავისუფლების მოედანი</div>
+              <h3>პუშკინის ფილიალი</h3>
+              <p class="loc-address">📍 ალ. პუშკინის ქ. 5</p>
+              <div class="loc-hours">⏰ 10:00 – 23:00</div>
+              <div class="loc-tags"><span>🆕 ახალი</span><span>🏛️ ისტ. ცენტრი</span><span>🛵 Wolt</span><span>🛵 Glovo</span></div>
+            </div>
+          </div>
+          <div class="loc-footer">
+            <a href="tel:+995577363010" class="loc-phone">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+              577 36 30 10
+            </a>
+            <div class="loc-actions">
+              <a href="https://www.instagram.com/hinkalifactory/" target="_blank" class="loc-map-btn" style="border-color:#e1306c;color:#e1306c">Instagram</a>
+              <a href="https://maps.google.com/maps?ftid=0x40440d56dc169935:0xb47c5ee8c9cbb49" target="_blank" class="loc-map-btn">რუკა →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DELIVERY PLATFORMS -->
+  <section class="delivery-strip">
+    <div class="container">
+      <div class="delivery-strip-inner reveal">
+        <h3>შეუკვეთე სახლში</h3>
+        <div class="delivery-strip-divider"></div>
+        <div class="delivery-btns">
+          <a href="https://wolt.com/ka/geo/tbilisi/restaurant/khinkali-factory-vake" target="_blank" class="btn-wolt">🛵 Wolt</a>
+          <a href="https://glovoapp.com/ka/ge/tbilisi/stores/khinkali-factory-tbilisi" target="_blank" class="btn-glovo">🟡 Glovo</a>
+          <div class="delivery-strip-divider"></div>
+          <a href="https://rezto.ge/reservation/hinkaliFactory" target="_blank" class="btn-rezto">📅 მაგიდის დაჯავშნა — Rezto</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOCIAL / CONTACT -->
+  <section class="social-delivery" id="contact">
+    <div class="container">
+      <div class="sd-grid">
+        <div class="sd-block reveal">
+          <h3>გამოგვყევით<br>სოციალ. მედიაში</h3>
+          <p>ყოველდღიური სიახლეები, ფოტოები, სპეციალური შეთავაზებები</p>
+          <div class="social-links">
+            <a href="https://www.instagram.com/hinkalifactory/" target="_blank" class="social-btn instagram">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+              @hinkalifactory
+            </a>
+            <a href="https://www.facebook.com/hinkalifactory/" target="_blank" class="social-btn facebook">
+              <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              Facebook
+            </a>
+          </div>
+        </div>
+        <div class="sd-divider"></div>
+        <div class="sd-block reveal delay-1">
+          <h3>დაგვიკავშირდით</h3>
+          <p>კითხვები, ბრონირება, კორპორატიული შეკვეთები</p>
+          <div class="contact-items">
+            <a href="tel:+995577330340" class="contact-item">📞 ვაკე — 577 33 03 40</a>
+            <a href="tel:+995577330306" class="contact-item">📞 საბურთალო — 577 33 03 06</a>
+            <a href="tel:+995577330307" class="contact-item">📞 ორბელიანი — 577 33 03 07</a>
+            <a href="tel:+995577363010" class="contact-item">📞 თავ. მოედანი — 577 36 30 10</a>
+            <a href="mailto:info@hinkalifactory.ge" class="contact-item">✉️ info@hinkalifactory.ge</a>
+            <div class="contact-item">⏰ ყოველდღე 10:00 – 23:00</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" style="margin-bottom:14px;display:inline-flex">
+            <span class="logo-geo">ხინკლის</span>
+            <span class="logo-eng">FACTORY</span>
+          </a>
+          <p>ნამდვილი ქართული გემო<br>თბილისის გულში.</p>
+        </div>
+        <div class="footer-links">
+          <h4>ნავიგაცია</h4>
+          <a href="#about">ჩვენ შესახებ</a>
+          <a href="menu.html">მენიუ</a>
+          <a href="#locations">ფილიალები</a>
+          <a href="#contact">კონტაქტი</a>
+        </div>
+        <div class="footer-links">
+          <h4>მიტანა & ჯავშანი</h4>
+          <a href="https://wolt.com/ka/geo/tbilisi/restaurant/khinkali-factory-vake" target="_blank">Wolt</a>
+          <a href="https://glovoapp.com/ka/ge/tbilisi/stores/khinkali-factory-tbilisi" target="_blank">Glovo</a>
+          <a href="https://rezto.ge/reservation/hinkaliFactory" target="_blank">Rezto — დაჯავშნა</a>
+        </div>
+        <div class="footer-links">
+          <h4>სოციალური</h4>
+          <a href="https://www.instagram.com/hinkalifactory/" target="_blank">Instagram</a>
+          <a href="https://www.facebook.com/hinkalifactory/" target="_blank">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 ხინკლის ფაბრიკა · ყველა უფლება დაცულია</p>
+        <p>#hinkalifactory</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 30);
+    });
+    const burger = document.getElementById('burger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    burger.addEventListener('click', () => mobileMenu.classList.toggle('open'));
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    reveals.forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
+
